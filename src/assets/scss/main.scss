@@ -1,0 +1,42 @@
+@use "sass:color";
+
+@use './modules/fonts';
+
+:root {
+  // font
+  --font-family-main: "Pixelify Sans", sans-serif;
+
+  // spacing
+  --padding-large: 2rem;
+  --padding-medium: 1.5rem;
+  --padding-small: 1rem;
+  --padding-smaller: 0.75rem;
+
+  // colors
+  --color-red-border: #782b11;;
+  --color-red-background: #fe4c5d;
+  --color-red-light-background: #e8e1e7;
+  --color-red-button: #e5e7f1;
+  --color-red-dark-button: color.scale(#e5e7f1, -20%);
+  --color-cyan-button: #00ffff;
+  --color-cyan-dark-button: color.scale(#00ffff, -20%);
+  --color-pink-button: #ff0bb6;
+  --color-pink-dark-button: color.scale(#ff0bb6, -20%);
+
+  // size
+  --width-default: 50vw;
+  --height-default: 60vh;
+  --width-min: 280px;
+  --height-min: 360px;
+
+  // border
+  --border-default-width: 1px;
+  --border-default-style: solid;
+  --border-default-color: var(--color-red-border);
+  --border-default-radius: 3px;
+  --border-default:
+    var(--border-default-width)
+    var(--border-default-style)
+    var(--border-default-color)
+  ;
+}
