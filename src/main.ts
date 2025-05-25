@@ -1,4 +1,5 @@
 import { createApp, type Component } from 'vue'
+import { createGtm } from '@gtm-support/vue-gtm'
 import { createPinia } from 'pinia'
 import persisteStorage from 'pinia-plugin-persistedstate'
 
@@ -19,6 +20,23 @@ pinia.use(persisteStorage)
 
 app.use(pinia)
 app.use(router)
+
+if (
+  import.meta.env.PROD
+  && import.meta.env.VITE_GTM_ID
+) {
+  app.use(
+    createGtm({
+      id: import.meta.env.VITE_GTM_ID,
+      defer: false,
+      compatibility: false,
+      enabled: true,
+      loadScript: true,
+      vueRouter: router,
+      trackOnNextTick: false,
+    }),
+  )
+}
 
 loadComponent(app, components)
 
