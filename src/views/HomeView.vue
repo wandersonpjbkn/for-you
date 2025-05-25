@@ -19,10 +19,9 @@ main {
   grid-template-rows: auto 1fr;
   row-gap: var(--padding-smaller);
 
-  width: var(--width-default);
-  height: var(--height-default);
-  min-width: var(--width-min);
-  min-height: var(--height-min);
+  width: 100%;
+  max-width: var(--width-default);
+  min-width: fit-content;
   padding: var(--padding-smaller);
 
   background: {

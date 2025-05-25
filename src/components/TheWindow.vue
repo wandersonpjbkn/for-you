@@ -32,7 +32,7 @@ const storeWindow = useWindowStore()
 <style lang="scss" scoped>
 section {
   display: grid;
-  grid-template-rows: 1fr auto;
+  grid-template-rows: minmax(280px, 1fr) auto;
   row-gap: var(--padding-smaller);
 
   width: 100%;
