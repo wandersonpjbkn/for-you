@@ -21,7 +21,7 @@ body {
     image: url(@/assets/images/layout/img-field.png);
   }
   box-sizing: border-box;
-  // overflow: hidden;
+  overflow: hidden;
 
   font: {
     family: var(--font-family-main);
