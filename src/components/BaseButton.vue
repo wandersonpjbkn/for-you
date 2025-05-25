@@ -1,17 +1,30 @@
 <script lang="ts" setup>
 const {
-    size = 'small'
+    size = 'small',
+    icon = false
 } = defineProps<{
   size?: 'small' | 'medium' | 'large'
+  icon?: { src: string, alt: string } | false
 }>()
 </script>
 
 <template>
   <button
-    :class="[size]"
+    :class="[
+      `is-${size}`,
+      { 'is-icon': !!icon }
+    ]"
     @click="$emit('clicked')"
   >
-    <slot />
+    <template v-if="icon">
+      <img
+        :src="icon.src"
+        :alt="icon.alt"
+      >
+    </template>
+    <template v-else>
+      <slot />
+    </template>
   </button>
 </template>
 
@@ -23,13 +36,22 @@ const {
   color: #{$color};
 }
 
+@mixin size($fontSize, $scale) {
+  font-size: #{$fontSize};
+
+  img {
+    width: #{$scale};
+    height: #{$scale};;
+  }
+}
+
 button {
   @include state(
     var(--color-red-button),
     var(--color-red-dark-button)
   );
 
-  padding: 5px 10px;
+  padding: .5rem 1rem;
   border: var(--border-default);
   border-radius: var(--border-default-radius);
 
@@ -53,16 +75,33 @@ button {
     );
   }
 
-  &.small {
-    font-size: 1rem;
-  }
+  &.is {
+    &-icon {
+      display: flex;
 
-  &.medium {
-    font-size: 1.5rem;
-  }
+      padding: 0;
+      background-color: var(--color-transparent) !important;
+      border: none;
+      border: {
+        color: var(--color-transparent) !important;
+        radius: 0;
+      }
 
-  &.large {
-    font-size: 2rem;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &-small {
+      @include size(1rem, 1.5rem);
+    }
+
+    &-medium {
+      @include size(1.5rem, 1rem);
+    }
+
+    &-large {
+      @include size(2rem, 1.5rem);
+    }
   }
 }
 </style>

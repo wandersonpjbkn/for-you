@@ -18,7 +18,7 @@ body {
     position: center;
     repeat: no-repeat;
     size: cover;
-    image: url(@/assets/images/background.png);
+    image: url(@/assets/images/layout/img-field.png);
   }
   box-sizing: border-box;
   // overflow: hidden;
