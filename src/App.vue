@@ -12,7 +12,7 @@ body {
 
   width: 100dvw;
   height: 100dvh;
-  padding: var(--padding-large);
+  padding: var(--padding-small);
   background: {
     color: #fefbec;
     position: center;
@@ -34,6 +34,10 @@ body {
 
     align-items: center;
     justify-content: center;
+  }
+
+  @media (min-width: 768px) {
+    padding: var(--padding-large);
   }
 }
 </style>
